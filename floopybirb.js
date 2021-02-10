@@ -1,7 +1,7 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-var ball = {xPos: c.width/20, yPos: c.height/20, xMove: 5, yMove: 5, rad: 20}; //ball is now a class object. The params setting the balls position and radius.
+var ball = {xPos: c.width/20, yPos: c.height/20, xMove: 5, yMove: 5, rad: 10}; //ball is now a class object. The params setting the balls position and radius.
 var gravity = 0.15; //Sets gravity-the rate at which the ball falls down. // changed to .15 to make ball more controllable
 var damping = 0.75; //This will make the ball slow down when it hits a wall.
 var rectWidth = Math.floor(Math.random() * (125 - 100) + 100);//rectangle set width
