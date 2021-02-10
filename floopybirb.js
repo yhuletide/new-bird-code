@@ -13,6 +13,10 @@ var timer = 0; // be used to time the spawns of the pipes.
 var score = 0; //Score counter that will increase every time the player goes through a pipe.
 
 function drawCircle() { //This function will draw the ball that will be controlled by the player
+  ball.img = newImage()
+  ball.img.src = "birdd";
+  ctx.drawImage(ball.img, ball.xPos, ball.yPos, ball)
+
   ctx.beginPath();//begins to draw ball on the canvas
   ctx.arc(ball.xPos, ball.yPos, ball.rad, 0, Math.PI*2); //Draws the ball using it's pre-determined loation and radius.
   ctx.fillStyle = "red"; //Makes the ball red.
