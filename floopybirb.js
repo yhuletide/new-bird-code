@@ -1,7 +1,7 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-var ball = {xPos: c.width/20, yPos: c.height/20, xMove: 5, yMove: 5, rad: 10}; //ball is now a class object. The params setting the balls position and radius.
+var ball = {xPos: c.width/20, yPos: c.height/20, xMove: 5, yMove: 5, rad: 0}; //ball is now a class object. The params setting the balls position and radius.
 var gravity = 0.15; //Sets gravity-the rate at which the ball falls down. // changed to .15 to make ball more controllable
 var damping = 0.75; //This will make the ball slow down when it hits a wall.
 var rectWidth = Math.floor(Math.random() * (125 - 100) + 100);//rectangle set width
@@ -12,13 +12,20 @@ var rectArray = []; // array is considered a placeholder.
 var timer = 0; // be used to time the spawns of the pipes.
 var score = 0; //Score counter that will increase every time the player goes through a pipe.
 
-function drawCircle() { //This function will draw the ball that will be controlled by the player
 
+var birb = new Image();
+birb.src = "redbird.png"
+birb.width = 10;
+birb.height = 10;
+ctx.drawImage(birb, 150, 150, 10, 10 );
+
+function drawCircle() { //This function will draw the ball that will be controlled by the player
 
   ctx.beginPath();//begins to draw ball on the canvas
   ctx.arc(ball.xPos, ball.yPos, ball.rad, 0, Math.PI*2); //Draws the ball using it's pre-determined loation and radius.
-  ctx.fillStyle = "red"; //Makes the ball red.
-  ctx.fill();
+  ctx.fillStyle = "clear"; //Makes the ball red.
+
+  ctx.drawImage(birb, ball.xPos - 19, ball.yPos - 19, 45, 35);
   ctx.stroke();
 }
 
@@ -132,6 +139,8 @@ function draw() {
     collisionCheck(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
   }
   timer ++; //makes timer go up by 1 as each frame passes
+
+
 }
 
 setInterval(draw, 10);
