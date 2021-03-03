@@ -1,3 +1,8 @@
+window.addEventListener("keyup", ev => {
+  if (ev.keyCode === 38) {
+    //YOUR CODE HERE
+
+
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
@@ -14,7 +19,7 @@ var score = 0; //Score counter that will increase every time the player goes thr
 
 
 var birb = new Image();
-birb.src = "redbird.png"
+birb.src = "good bird.png"
 birb.width = 10;
 birb.height = 10;
 ctx.drawImage(birb, 150, 150, 10, 10 );
@@ -24,8 +29,7 @@ function drawCircle() { //This function will draw the ball that will be controll
   ctx.beginPath();//begins to draw ball on the canvas
   ctx.arc(ball.xPos, ball.yPos, ball.rad, 0, Math.PI*2); //Draws the ball using it's pre-determined loation and radius.
   ctx.fillStyle = "clear"; //Makes the ball red.
-
-  ctx.drawImage(birb, ball.xPos - 19, ball.yPos - 19, 45, 35);
+  ctx.drawImage(birb, ball.xPos - 19, ball.yPos - 19, 70, 70,);
   ctx.stroke();
 }
 
@@ -154,3 +158,5 @@ function makeBounce(e) {
     ball.xMove = -ball.xMove;
   }
 }
+}
+})
